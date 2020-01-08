@@ -1,0 +1,26 @@
+--Asfarah Rahman
+--Chapter 4 Problem Set
+
+--Query 1
+--This returns the name of the gym and the state for gyms in 
+--georgia and new york
+SELECT gym_id || ' ' || gym_name AS "GYM", gym_city || ', ' || gym_state AS "LOCATION"
+FROM GYMS
+WHERE gym_state = 'GA' OR gym_state = 'NY'
+ORDER BY gym_id;
+
+
+
+--Query 2
+--This shows the members name and phone number for locations like atl
+SELECT mem_first ||' '|| mem_last AS "Name", mem_phone AS "Phone Number", mem_city ||', '|| mem_state AS "Location"
+FROM GYM_MEMBERS
+WHERE mem_city LIKE 'Atl%'
+ORDER BY mem_state;
+
+--Query 3
+SELECT equip_type AS "Type of Equipment", equip_id AS "Equipment ID"
+FROM GYM_EQUIPMENTS
+WHERE equip_id BETWEEN 200 AND 1000  
+ORDER BY equip_id
+FETCH FIRST 8 ROWS ONLY;
